@@ -1,4 +1,5 @@
 import numpy as np
+
 def activation(v):
     if v==3.5:
         return 1
@@ -8,10 +9,12 @@ def activation(v):
 def perceptron(x,w,b):
     r=np.dot(x,w)+b
     return activation(r)
+
 def AND_gate(x):
     w=np.array([1,1,1])
     b=0.5
     return perceptron(x,w,b)
+
 EX1=np.array([0,0,0])
 EX2=np.array([0,0,1])
 EX3=np.array([0,1,0])

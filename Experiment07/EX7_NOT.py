@@ -1,4 +1,5 @@
 import numpy as np
+
 def activation(v):
     if v<=0.5:
         return 1
@@ -8,6 +9,7 @@ def activation(v):
 def perceptron(x,w,b):
     r=np.dot(x,w)+b
     return activation(r)
+
 def NOT_gate(x):
     w=1
     b=0.5

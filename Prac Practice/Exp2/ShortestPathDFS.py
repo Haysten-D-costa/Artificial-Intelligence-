@@ -1,22 +1,16 @@
-'''
-    Experiment 02 : Depth First Search Shortest Path
-'''
 graph = {
     'A' : ['B', 'C'],
-    'B' : ['H', 'D', 'E'],
+    'B' : ['D', 'E'],
     'C' : ['F', 'G'],
     'D' : [],
     'E' : [],
     'F' : [],
-    'G' : ['H', 'I'],
-    'H' : [],
-    'I' : []
+    'G' : []
 }
-
 start = input("Enter start node : ")
-goal = input("Enter goal node  : ")
+goal = input("Enter goal node : ")
 
-def dfsShortestPath(graph):
+def ShortestPathDFS(graph):
     visited = []
     stack = [start]
     
@@ -26,12 +20,15 @@ def dfsShortestPath(graph):
         if node not in visited:
             visited.append(node)
             neighbours = graph[node]
-            
+
         for neighbour in neighbours:
             new_path = list(path)
             new_path.append(neighbour)
             stack.append(new_path)
+
             if neighbour == goal:
                 return new_path
-                
-print(f"Shortest DFS Path is : {dfsShortestPath(graph)}")
+
+
+
+print(f"Shortest DFS Path is : {ShortestPathDFS(graph)}")

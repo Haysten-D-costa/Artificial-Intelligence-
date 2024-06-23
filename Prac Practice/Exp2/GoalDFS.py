@@ -1,6 +1,3 @@
-'''
-    Experiment 02 : Depth First Search
-'''
 graph = {
     'A' : ['B', 'C'],
     'B' : ['D', 'E'],
@@ -10,21 +7,23 @@ graph = {
     'F' : [],
     'G' : []
 }
-start = input("Enter the start node : ")
+start = input("Enter start node : ")
+goal = input("Enter goal node   : ")
 
-def depthFirstSearch(graph):
+def GoalDFS(graph):
     visited = []
     stack = [start]
 
     while stack:
         node = stack.pop()
-        
         if node not in visited:
             visited.append(node)
+            if node == goal:
+                return visited
             neighbours = graph[node]
 
         for neighbour in neighbours:
             stack.append(neighbour)
-    return visited     
+    return "- No such goal exists !"
 
-print(f"DFS Traversal : {depthFirstSearch(graph)}")
+print(f"DFS Goal : {GoalDFS(graph)}")       
