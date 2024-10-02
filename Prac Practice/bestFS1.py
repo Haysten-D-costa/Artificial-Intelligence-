@@ -7,12 +7,12 @@ graph = {
     'F' : [('H', 0)],
     'G' : [('H', 0)]
 }
-open = []
-close = []
 start = "A"
 goal = "H"
+open = []
+close = []
 
-def BestFS(graph, start, goal, open, close):
+def bestFS(graph, start, goal, open, close):
     if start not in close:
         print(start)
         close.append(start)
@@ -21,14 +21,15 @@ def BestFS(graph, start, goal, open, close):
         for i in neighbours:
             if i[0] not in open:
                 open.append(i)
-                open.sort(key = lambda i:i[1])
+                open.sort(key=lambda i:i[1])
 
-    if open[0][0] == goal:
-        print(open[0][0])
+    if i[0][0] == goal:
+        close.append(i[0][0])
+        print(i[0][0])
     else:
         node = open[0]
         open.remove(node)
-        BestFS(graph, node[0], goal, open, close)
+        bestFS(graph, node[0], goal, open, close)
     return close
-    
-BestFS(graph, start, goal, open, close)
+
+print(bestFS(graph, start, goal, open, close))
